@@ -1,12 +1,23 @@
 Package: popest
-Title: What the Package Does (One Line, Title Case)
+Title: Tools to Get Population Estimates Data
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Ray",
+           family = "Wright",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "raywright88@gmail.com")
+Description: Tools to get US Census Bureau Population Estimates
+    data.
+License: MIT + file LICENSE
+Depends: R (>= 3.3.0)
+Imports: 
+    data.table,
+    dplyr,
+    stringr,
+    tidyr
+Suggests: 
+    testthat
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.0

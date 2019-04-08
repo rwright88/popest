@@ -1,2 +1,6 @@
+^data-raw$
+^other$
+^LICENSE\.md$
+^README\.Rmd$
 ^popest\.Rproj$
 ^\.Rproj\.user$
