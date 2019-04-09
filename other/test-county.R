@@ -8,7 +8,7 @@ library(rwmisc)
 # get data ----------------------------------------------------------------
 
 # dat <- read_county(year = 2017)
-dat <- data.table::fread("~/cc-est2017-alldata.csv")
+dat <- data.table::fread("~/data/popest/cc-est2017-alldata.csv")
 dat <- clean_county(dat, year = 2017)
 
 summary2(dat)
@@ -37,5 +37,4 @@ dists <- dat %>%
 tots %>%
   left_join(dists, by = c("cbsa_code", "cbsa_name")) %>%
   select(-multiple, -native, -pacific) %>%
-  filter(rank(desc(pop)) <= 100) %>%
-  arrange(desc(asian))
+  arrange(desc(pop))

@@ -13,7 +13,6 @@ Depends: R (>= 3.3.0)
 Imports: 
     data.table,
     dplyr,
-    stringr,
     tidyr
 Suggests: 
     testthat

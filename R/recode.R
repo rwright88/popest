@@ -8,20 +8,20 @@ rec_age_2010 <- function(x) {
 
 rec_county <- function(state, county) {
   paste0(
-    stringr::str_pad(state, width = 2, pad = "0"),
-    stringr::str_pad(county, width = 3, pad = "0")
+    formatC(state, width = 2, format = "d", flag = "0"),
+    formatC(county, width = 3, format = "d", flag = "0")
   )
 }
 
 rec_race <- function(x) {
   out <- rep(NA_character_, length(x))
-  out[grepl(pattern = "nhwa", x = x, perl = TRUE)]  <- "white"
-  out[grepl(pattern = "nhba", x = x, perl = TRUE)]  <- "black"
-  out[grepl(pattern = "nhia", x = x, perl = TRUE)]  <- "native"
-  out[grepl(pattern = "nhaa", x = x, perl = TRUE)]  <- "asian"
-  out[grepl(pattern = "nhna", x = x, perl = TRUE)]  <- "pacific"
-  out[grepl(pattern = "nhtom", x = x, perl = TRUE)] <- "multiple"
-  out[grepl(pattern = "h_", x = x, perl = TRUE)]    <- "hispanic"
+  out[x %in% c("nhwa_male", "nhwa_female")]   <- "white"
+  out[x %in% c("nhba_male", "nhba_female")]   <- "black"
+  out[x %in% c("nhia_male", "nhia_female")]   <- "native"
+  out[x %in% c("nhaa_male", "nhaa_female")]   <- "asian"
+  out[x %in% c("nhna_male", "nhna_female")]   <- "pacific"
+  out[x %in% c("nhtom_male", "nhtom_female")] <- "multiple"
+  out[x %in% c("h_male", "h_female")]         <- "hispanic"
   out
 }
 
