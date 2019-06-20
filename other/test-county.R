@@ -2,16 +2,13 @@
 
 library(tidyverse)
 library(popest)
-library(rwmisc)
 
+year <- 2018
 
 # get data ----------------------------------------------------------------
 
-# dat <- read_county(year = 2017)
-dat <- data.table::fread("~/data/popest/cc-est2017-alldata.csv")
-dat <- clean_county(dat, year = 2017)
-
-summary2(dat)
+dat <- read_county(year = year)
+dat <- clean_county(dat, year = year)
 
 # metros ------------------------------------------------------------------
 
@@ -36,5 +33,5 @@ dists <- dat %>%
 
 tots %>%
   left_join(dists, by = c("cbsa_code", "cbsa_name")) %>%
-  select(-multiple, -native, -pacific) %>%
+  select(cbsa_code, cbsa_name, pop, white, hispanic, black, asian) %>%
   arrange(desc(pop))
