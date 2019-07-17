@@ -9,14 +9,11 @@
 #' @export
 clean_county <- function(data, year) {
   stopifnot(is.data.frame(data))
-
   if (year %in% 2011:2019) {
-    data <- clean_county_2010(data)
+    clean_county_2010(data)
   } else {
     stop("Year not implemented.", call. = FALSE)
   }
-
-  data
 }
 
 clean_county_2010 <- function(data) {

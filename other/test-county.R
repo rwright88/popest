@@ -7,21 +7,21 @@ year <- 2018
 
 # get data ----------------------------------------------------------------
 
-dat <- read_county(year = year)
-dat <- clean_county(dat, year = year)
+data <- read_county(year = year)
+data <- clean_county(data, year = year)
 
 # metros ------------------------------------------------------------------
 
-dat <- dat %>%
+data <- data %>%
   left_join(popest::cw_metro, by = c("county" = "county_fips"))
 
-tots <- dat %>%
+tots <- data %>%
   filter(year == max(year)) %>%
   group_by(cbsa_code, cbsa_name) %>%
   summarise(pop = sum(pop)) %>%
   ungroup()
 
-dists <- dat %>%
+dists <- data %>%
   filter(year == max(year)) %>%
   group_by(cbsa_code, cbsa_name, race) %>%
   summarise(pop = sum(pop)) %>%
