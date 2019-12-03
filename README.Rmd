@@ -25,4 +25,13 @@ devtools::install_github("rwright88/popest")
 
 ## Examples
 
-TODO
+Get vintage 2018 population data by county:
+
+```{r}
+library(popest)
+
+year <- 2018
+data <- popest::read_county(year)
+data <- popest::clean_county(data, year)
+data
+```
